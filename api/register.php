@@ -8,10 +8,10 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
-$host = 'localhost';
+$host = 'aws.connect.psdb.cloud';
 $dbname = 'mealplanner_db';
-$username = 'root';
-$password = '';
+$username = 'atagedj3rfgjgh1cmc7g';
+$password = 'pscale_pw_Gl42WTXDBV8A340gcTRaEG73YrjxaIpYlEDoL5MjNWV';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
