@@ -57,15 +57,21 @@ try {
         'token' => $token
     ]);
     
-    // RESEND API INTEGRATION
+    // MAILTRAP API INTEGRATION
     $reset_link = "http://localhost/mealplanner/login.html?token=" . $token;
     
-    $resend_url = "https://api.resend.com/emails";
-    $resend_token = "re_gbtm6pys_Ekw2XKqZRrCiGjzypw3xcvv2";
-
+    // Mailtrap API
+    $mailtrap_api_url = "https://send.api.mailtrap.io/api/send";
+    $mailtrap_api_token = "34b827d93eba3e7ce87a8da716d06b66";
+    
     $email_data = [
-        "from" => "onboarding@resend.dev",
-        "to" => [$email],
+        "from" => [
+            "email" => "hello@demomailtrap.co",
+            "name" => "MealPlanner"
+        ],
+        "to" => [
+            ["email" => $email]
+        ],
         "subject" => "Password Reset - MealPlanner",
         "html" => "
             <div style=\"font-family: 'Inter', sans-serif; line-height: 1.6; color: #334155; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px;\">
@@ -84,15 +90,16 @@ try {
                     &copy; 2025 MealPlanner. All rights reserved.
                 </div>
             </div>
-        "
+        ",
+        "category" => "Password Reset"
     ];
 
-    $ch = curl_init($resend_url);
+    $ch = curl_init($mailtrap_api_url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($email_data));
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        "Authorization: Bearer " . $resend_token,
+        "Authorization: Bearer " . $mailtrap_api_token,
         "Content-Type: application/json"
     ]);
 
