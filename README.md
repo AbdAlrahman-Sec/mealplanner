@@ -174,7 +174,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 **Aabd2017**
 
-- GitHub: [@Aabd2017](https://github.com/Aabd2017)
+- GitHub: [@AbdAlrahman-Sec](https://github.com/AbdAlrahman-Sec))
 
 ## 🙏 Acknowledgments
 
